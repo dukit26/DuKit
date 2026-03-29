@@ -6,7 +6,6 @@ export default function LoginPage({ onLogin }) {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
 
-  // Load saved email/username
   useEffect(() => {
     const savedEmail = localStorage.getItem("dukitemail");
     const savedUsername = localStorage.getItem("dukusername");
@@ -28,7 +27,7 @@ export default function LoginPage({ onLogin }) {
 
   return (
     <div style={styles.container}>
-      {/* LEFT */}
+      {/* LEFT SIDE */}
       <div style={styles.left}>
         <div style={styles.logo}>
           Du<span style={styles.logoSpan}>Kit</span>
@@ -40,7 +39,7 @@ export default function LoginPage({ onLogin }) {
         <div style={styles.footer}>DuKit World</div>
       </div>
 
-      {/* RIGHT */}
+      {/* RIGHT SIDE */}
       <div style={styles.right}>
         <div style={styles.formBox}>
           <h2>{isLogin ? "Login" : "Sign Up"}</h2>
@@ -80,6 +79,7 @@ const styles = {
   container: {
     display: "flex",
     height: "100vh",
+    width: "100vw",
     fontFamily: "Inter, sans-serif",
   },
   left: {
@@ -92,12 +92,7 @@ const styles = {
     justifyContent: "space-between",
   },
   logo: { fontSize: "24px", fontWeight: "700" },
-  logoSpan: {
-    background: "#fff",
-    padding: "3px 10px",
-    borderRadius: "6px",
-    marginLeft: "5px",
-  },
+  logoSpan: { background: "#fff", padding: "3px 10px", borderRadius: "6px", marginLeft: "5px" },
   hero: { fontSize: "32px", fontWeight: "600", maxWidth: "300px", lineHeight: 1.3 },
   duck: { fontSize: "60px", marginTop: "20px" },
   footer: { fontSize: "13px" },
@@ -109,26 +104,8 @@ const styles = {
     alignItems: "center",
   },
   formBox: { width: "320px" },
-  input: {
-    width: "100%",
-    padding: "12px",
-    marginBottom: "12px",
-    borderRadius: "8px",
-    border: "1px solid #ddd",
-    fontSize: "14px",
-    background: "white",
-  },
-  button: {
-    width: "100%",
-    padding: "12px",
-    border: "none",
-    borderRadius: "8px",
-    background: "#4fb3ff",
-    color: "white",
-    fontWeight: 600,
-    cursor: "pointer",
-    marginTop: "5px",
-  },
+  input: { width: "100%", padding: "12px", marginBottom: "12px", borderRadius: "8px", border: "1px solid #ddd", fontSize: "14px", background: "white" },
+  button: { width: "100%", padding: "12px", border: "none", borderRadius: "8px", background: "#4fb3ff", color: "white", fontWeight: 600, cursor: "pointer", marginTop: "5px" },
   toggle: { marginTop: "15px", fontSize: "14px", color: "#555", cursor: "pointer" },
   toggleSpan: { color: "#4fb3ff", fontWeight: 600 },
 };
