@@ -6,7 +6,7 @@ export default function LoginPage({ onLogin }) {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
 
-  // Load saved login
+  // Load saved email/username
   useEffect(() => {
     const savedEmail = localStorage.getItem("dukitemail");
     const savedUsername = localStorage.getItem("dukusername");
@@ -20,17 +20,15 @@ export default function LoginPage({ onLogin }) {
     if (!email) return alert("Enter your email");
     if (!isLogin && !username) return alert("Enter a username");
 
-    // Save to localStorage
     localStorage.setItem("dukitemail", email);
     if (!isLogin) localStorage.setItem("dukusername", username);
 
-    // Call parent to switch to main menu
-    onLogin({ email, username: isLogin ? username : username || email });
+    onLogin({ email, username: isLogin ? username || email : username });
   };
 
   return (
     <div style={styles.container}>
-      {/* Left branding */}
+      {/* LEFT */}
       <div style={styles.left}>
         <div style={styles.logo}>
           Du<span style={styles.logoSpan}>Kit</span>
@@ -39,10 +37,10 @@ export default function LoginPage({ onLogin }) {
           <div style={styles.hero}>Get A Little Quack In Your Life</div>
           <div style={styles.duck}>🦆</div>
         </div>
-        <div style={styles.footer}>Jackson Academy</div>
+        <div style={styles.footer}>DuKit World</div>
       </div>
 
-      {/* Right form */}
+      {/* RIGHT */}
       <div style={styles.right}>
         <div style={styles.formBox}>
           <h2>{isLogin ? "Login" : "Sign Up"}</h2>
@@ -78,7 +76,6 @@ export default function LoginPage({ onLogin }) {
   );
 }
 
-// Inline styles
 const styles = {
   container: {
     display: "flex",
